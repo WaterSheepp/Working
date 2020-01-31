@@ -12,8 +12,12 @@ var EncuestaSchema = Schema({
         talvez: Number,
         user: []
     },
-    listaComentarios: [],
-    user:{ type: Schema.ObjectID, ref:'User'}
+    listaComentarios: [{
+        comentario: String, 
+        comentarioUsuario : { type: Schema.ObjectId, ref: 'user'}
+        
+    }],
+    user:{ type: Schema.ObjectId, ref:'user'}
 })
 
 module.exports = mongoose.model('encuesta', EncuestaSchema)

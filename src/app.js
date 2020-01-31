@@ -8,6 +8,7 @@ const bodyParser = require("body-parser")
 
 //Carga de Rutas
 var user_routes = require("./routes/userRoutes")
+var encuesta_routes = require('./routes/encuestaRoutes')
 
 //MiddleWares
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -24,7 +25,8 @@ app.use((req, res, next)=>{
 })
 
 //Rutas se le pone API antes para saber en cual es que es.
-app.use('/api', user_routes)
+app.use('/api', user_routes, encuesta_routes)
+
 
 
 //Exporta de esta manera
